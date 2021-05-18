@@ -1,8 +1,10 @@
 
 %% Projeto 1 - MS512
 %
-% Guilherme Artoni
-% RA 160318
+% Guilherme Artoni                  RA 160318
+% Julia Martins Guardia             RA 176979
+% Thiago Henrique Da Cruz           RA 206333
+% Willian Rodrigues de Abreu Silva  RA 178739
 % 
 %%
 
@@ -88,6 +90,10 @@ y = [1.00 0.8125 0.75 1.00 1.3125 1.75 2.3125];
 
 # MOSTRA CURVA GERADA PELOS DADOS
 plot(t,y);
+xlabel("t");
+ylabel("y");
+title("Curva gerada pelos dados fornecidos no problema");
+
 
 # MATRIZ DE DESENHO 
 r = length(t);
@@ -122,7 +128,7 @@ solution_y = inverse(Ry(1:columns(Ry),:))*cy(1:columns(Ry));
 y_hat = 1000*solution_y(1) + solution_y(2).*A(:,2);
 
 # MOSTRA CURVA GERADA PELOS DADOS
-plot(t,y,t,y_hat);
+plot(t-1065,y,t-1065,y_hat);
 xlabel('x (unidades arbitrárias)');
 ylabel('y (unidades arbitrárias)');
 title('Valores Observados x Valores Preditos através do método de Quadrados Mínimos');
@@ -138,7 +144,7 @@ solution_z = inverse(Rz(1:columns(Rz),:))*cz(1:columns(Rz));
 z_hat = 1000*solution_z(1) + solution_z(2).*A(:,2);
 
 # MOSTRA CURVA GERADA PELOS DADOS
-plot(t,z,t,z_hat);
+plot(t-1065,z,t-1065,z_hat);
 xlabel('x (unidades arbitrárias)');
 ylabel('z (unidades arbitrárias)');
 title('Valores Observados x Valores Preditos através do método de Quadrados Mínimos');
@@ -147,17 +153,20 @@ legend('Observado', 'Predito');
 %% Questão 3
 
 # CRIA OBJETOS COM OS DADOS DA QUESTAO
-A = [1 2 3 4; 5 6 7 8; 9 10 11 12; 1 1 1 1; 3 2 1 0]
+A = [1 2 3 4; 
+     5 6 7 8; 
+     9 10 11 12; 
+     1 1 1 1; 
+     3 2 1 0]
 b = [10 26 42 4 6];
 
 # EXECUTA A DECOMPOSICAO QR
 [R, c] = QR_decomposition(A,b');
 
 % A matriz A como foi definida possui posto 2 pois há combinações lineares 
-% tanto em suas linhas como em suas colunas
 
-A(1,:) + A(2,:) + A(5,:) 
-A(3,:)
+A(:,2) + A(:,2) - A(:,1) 
+A(:,3)
 
 A(:,4) - A(:,2) + A(:,1)
 A(:,3)
