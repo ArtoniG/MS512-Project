@@ -3,7 +3,7 @@
 %
 % Guilherme Artoni                  RA 160318
 % Julia Martins Guardia             RA 176979
-% Thiago Henrique Da Cruz           RA 206333
+% Tiago Henrique Da Cruz           RA 206333
 % Willian Rodrigues de Abreu Silva  RA 178739
 % 
 %%
